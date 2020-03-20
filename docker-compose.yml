@@ -13,7 +13,7 @@ services:
   keystone:
     depends_on:
       - mysql_db
-    image: krystism/openstack-keystone
+    build: .
     links:
       - mysql_db
     ports:

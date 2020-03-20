@@ -2,7 +2,10 @@
 SHELL := /bin/bash
 
 all:
-		docker-compose up -d --build mysql_db keystone
+		docker-compose up --build mysql_db keystone
+
+build:
+		docker-compose build
 
 ssh:
 		mysql -u root -p
