@@ -4,11 +4,15 @@ services:
     image: mysql:5.7
     ports:
       - "3306:3306"
-    volumes:
-      - "./.data/db:/var/lib/mysql"
+    #volumes:
+    #  - "./.data/db:/var/lib/mysql"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: something_secret
+      # https://blog.mosuke.tech/entry/2018/04/21/basic-mysql-on-docker/
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: keystone
+      MYSQL_USER: keystone-admin
+      MYSQL_PASSWORD: keystone-pw
 
   keystone:
     depends_on:
