@@ -8,3 +8,6 @@
 
 `docker-compose.yml` 内の `MYSQL_ROOT_PASSWORD: secret` にて設定
 * keystoneの情報は `keystone` database内に格納
+
+### CLIツール
+[keystoneコマンドはdeprecatedになり](https://docs.openstack.org/mitaka/cli-reference/keystone.html)現在は、[OpenStack command client](https://docs.openstack.org/mitaka/cli-reference/openstack.html) の利用が推奨されているため、そちらをインストールする構成にしています。
