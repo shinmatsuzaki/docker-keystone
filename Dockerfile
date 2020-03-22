@@ -4,7 +4,7 @@ ENV VERSION=13.0.1
 
 RUN set -x \
     && apt -y update \
-    && apt install -y libffi-dev python-dev libssl-dev default-mysql-client python-mysqldb vim \
+    && apt install -y libffi-dev python-dev libssl-dev default-mysql-client python-mysqldb vim jq \
     && pip install pymysql \
     && pip install uwsgi \
     && pip install python-openstackclient
