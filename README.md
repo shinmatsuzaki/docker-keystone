@@ -27,7 +27,8 @@ OS_PROJECT_NAME=admin
 OS_USERNAME=admin
 OS_USER_DOMAIN_NAME=Default
 ```
-
+## projectやendpointを試しに作成してみたい
+- [公式のチュートリアル](https://docs.openstack.org/newton/ja/install-guide-debian/keystone-users.html)に従い試してみましょう
 
 ## MySQLへの接続
 `mysql -u root -p` を実行後、 パスワード `secret` を入力
