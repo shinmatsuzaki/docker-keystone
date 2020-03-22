@@ -6,15 +6,15 @@ RUN set -x \
     && apt -y update \
     && apt install -y libffi-dev python-dev libssl-dev default-mysql-client python-mysqldb vim \
     && pip install pymysql \
-    && pip install uwsgi
+    && pip install uwsgi \
+    && pip install python-openstackclient
 
 RUN DEBIAN_FRONTEND=noninteractive apt install -y keystone
 
-#RUN curl -fSL https://github.com/openstack/keystone/archive/${VERSION}.tar.gz -o keystone-${VERSION}.tar.gz \
-#    && tar xvf keystone-${VERSION}.tar.gz && cp -r ./keystone-13.0.1/etc/ /etc/keystone && cd keystone-${VERSION} \
-#    && pip install -r requirements.txt \
-#    && PBR_VERSION=${VERSION}  pip install . \
-#    && pip install uwsgi \
+RUN curl -fSL https://github.com/openstack/keystone/archive/${VERSION}.tar.gz -o keystone-${VERSION}.tar.gz \
+    && tar xvf keystone-${VERSION}.tar.gz && cp -r ./keystone-13.0.1/etc/ /etc/keystone && cd keystone-${VERSION} \
+    && pip install -r requirements.txt \
+    && PBR_VERSION=${VERSION}  pip install .
 #    && pip install python-openstackclient \
 #    && cd - \
 #    && rm -rf keystone-${VERSION}*
