@@ -1,31 +1,18 @@
-FROM python:2.7.16
+FROM ubuntu:18.04
 
-ENV VERSION=13.0.1
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN set -x \
-    && apt -y update \
-    && apt install -y libffi-dev python-dev libssl-dev default-mysql-client python-mysqldb vim jq \
-    && pip install pymysql \
-    && pip install uwsgi \
-    && pip install python-openstackclient
-
-RUN DEBIAN_FRONTEND=noninteractive apt install -y keystone
-
-RUN curl -fSL https://github.com/openstack/keystone/archive/${VERSION}.tar.gz -o keystone-${VERSION}.tar.gz \
-    && tar xvf keystone-${VERSION}.tar.gz && cp -r ./keystone-13.0.1/etc/ /etc/keystone && cd keystone-${VERSION} \
-    && pip install -r requirements.txt \
-    && PBR_VERSION=${VERSION}  pip install .
-#    && pip install python-openstackclient \
-#    && cd - \
-#    && rm -rf keystone-${VERSION}*
+RUN apt-get update && \
+    apt-get install -y keystone apache2 libapache2-mod-wsgi curl jq lsof
 
 COPY keystone.conf /etc/keystone/keystone.conf
-#COPY keystone.sql /root/keystone.sql
+COPY setup.sh /root/setup.sh
 
-# Add bootstrap script and make it executable
-COPY bootstrap.sh /etc/bootstrap.sh
-RUN chown root:root /etc/bootstrap.sh && chmod a+x /etc/bootstrap.sh
+RUN echo "ServerName keystone-server" >> /etc/apache2/apache2.conf
 
-WORKDIR /etc/keystone
-ENTRYPOINT ["/etc/bootstrap.sh"]
-EXPOSE 5000 35357
+COPY ./exec.sh /root/exec.sh
+RUN chmod +x /root/exec.sh /root/setup.sh
+
+CMD ["/root/exec.sh"]
+
+EXPOSE 5000

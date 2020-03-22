@@ -1,3 +1,8 @@
+## セットアップ方法
+1. `make` -> `Makefile` 経由で `docker-compose up` を起動
+2. `make ssh` -> keystoneコンテナにssh
+3. `/root/setup.sh` でkeystoneの初期設定(bootstrap)を実行 -> keystoneテーブルに各種の設定が書き込まれる
+
 ## Short Description
 
 Keystone is an OpenStack project that provides Identity, Token, Catalog and Policy services for use specifically by projects in the OpenStack family. This project aim to deploy Keystone service using Docker and can be upgraded easily.
