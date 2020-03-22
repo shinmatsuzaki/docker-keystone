@@ -44,11 +44,9 @@ keystone-manage bootstrap --bootstrap-password ADMIN_PASS \
   --bootstrap-project-name sample-project \
   --bootstrap-role-name sample-role \
   --bootstrap-service-name sample-service \
-  # endpointの作成
   --bootstrap-admin-url http://keystone-server:5000/v3/ \
   --bootstrap-internal-url http://keystone-server:5000/v3/ \
   --bootstrap-public-url http://keystone-server:5000/v3/ \
-  # endpointは以下のリージョン内に作成される
   --bootstrap-region-id RegionOne
 
 # optional arguments:
