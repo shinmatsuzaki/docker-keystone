@@ -7,25 +7,28 @@ Keystone is an OpenStack project that provides Identity, Token, Catalog and Poli
 For the impatient, I simplify some boring step using `Makefile`.
 
 ### 1. Build the image
-
-```bash
-git clone https://github.com/int32bit/docker-keystone.git
-cd docker-keystone
-make
-```
-
 ### 2. Start The Keystone Service
 
 ```bash
-make run
+$ make
+```
+### 3. Test keystone V3 API
+
+```
+$ curl http://localhost:5000/v3/ | jq .
 ```
 
-You can use `make log` to track log and `make exec` to enter instance context using shell.
 
-### 3. Remove Keytone container
+### 4. ssh into keystone container
+
+```
+$ make ssh
+```
+
+### 10. Remove Keytone container
 
 ```bash
-make clean
+$ make clean
 ```
 
 ## Quick Start Using Docker Compose
