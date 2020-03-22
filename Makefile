@@ -11,7 +11,8 @@ ssh:
 		mysql -u root -p
 
 ps:
-		docker-compose ps
+		docker-compose ps && echo ""
+		docker ps
 
 clean:
 		docker-compose down
