@@ -8,7 +8,7 @@ build:
 		docker-compose build
 
 ssh:
-		mysql -u root -p
+		docker exec -it  dockerkeystone_keystone_1 bash
 
 ps:
 		docker-compose ps && echo ""
