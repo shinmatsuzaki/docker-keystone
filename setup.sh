@@ -39,14 +39,9 @@ echo " keystone-manage bootstrap :"
 echo "--------------------------------------------------------------------------------"
 
 keystone-manage bootstrap --bootstrap-password ADMIN_PASS \
-  --bootstrap-username testuser \
-  --bootstrap-password password \
-  --bootstrap-project-name sample-project \
-  --bootstrap-role-name sample-role \
-  --bootstrap-service-name sample-service \
-  --bootstrap-admin-url http://keystone-server:5000/v3/ \
-  --bootstrap-internal-url http://keystone-server:5000/v3/ \
-  --bootstrap-public-url http://keystone-server:5000/v3/ \
+  --bootstrap-admin-url http://localhost:5000/v3/ \
+  --bootstrap-internal-url http://localhost:5000/v3/ \
+  --bootstrap-public-url http://localhost:5000/v3/ \
   --bootstrap-region-id RegionOne
 
 # optional arguments:

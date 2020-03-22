@@ -26,12 +26,11 @@ services:
     restart: always
     environment:
       # https://docs.openstack.org/liberty/ja/install-guide-ubuntu/keystone-openrc.html
-      OS_PROJECT_DOMAIN_ID: default
-      OS_USER_DOMAIN_ID: default
-      OS_PROJECT_NAME: admin
-      OS_TENANT_NAME: admin
       OS_USERNAME: admin
-      OS_PASSWORD: password
+      OS_PASSWORD: ADMIN_PASS
+      OS_PROJECT_NAME: admin
+      OS_USER_DOMAIN_NAME: Default
+      OS_PROJECT_DOMAIN_NAME: Default
       OS_IDENTITY_API_VERSION: 3
       OS_AUTH_URL: "http://localhost:5000/v3"
 
